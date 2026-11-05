@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCMS</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ <style>
+    .navbar{
+     background-color: #14213D;
+     box-shadow: 0px 0px 7px #c5a15b;
+    }
+    .navbar-brand{
+        color: white;
+        margin-left: 80px;
+        font-size: x-large;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .navbar-brand:hover{
+      
+        color: #c5a15b;
+    }
+    .navbar-nav .nav-link {
+    color: white;
+    padding: 8px;
+    margin: 5px;
+    
+}
+.navbar-nav .nav-link:hover {
+    color: #c5a15b;
+}button {
+    border-radius: 6px;
+    color: white;
+    background-color: #14213D;
+    padding: 5px 5px;      
+    font-size: 15px;
+    font-weight: 450;
+    cursor: pointer;
+}
+#btn {
+    background-color: #c5a15b;
+    color: #14213D;
+    border: 1px solid #c5a15b;
+}#btn:hover{
+     transition: all 0.3s;
+     border: 1px solid white;
+}
+button:hover{
+     border: 1px solid white;
+     transition: all 0.3s;
+}
+button i{
+    margin-right: 8px;
+}.hero-section{
+    background-color: #14213D;
+    display: flex;
+    color: white;
+    align-items: center;
+    min-height: 90vh;
+}
+.hero-content{
+    padding: 60px 40px 60px 100px;
+}.hero-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #c5a15b;
+    color:#c5a15b;
+    padding: 9px 18px;
+    border-radius: 30px;
+    font-size: 16px;
+    margin-bottom: 25px;
+
+}.span1{
+    color: #c5a15b;
+}.title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 55px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}.hero-text {
+    color:white;
+    font-size: 17px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}#btn2,#btn3{
+     padding: 10px 10px; 
+}#btn2{
+background-color: #c5a15b;
+}
+img{
+   width: 100%;
+    height: 90vh;
+    object-fit:cover;
+    border-radius: 50% 0 0 50% / 100% 0 0 100%;  
+    border-left: 4px solid #c5a15b;
+    margin-left: 10px;
+    box-shadow: 4px 4px 10px #c5a15b;
+}@media (max-width: 991px) {
+    .hero-content { padding: 40px 20px; }
+
+    .title { font-size: 38px; }
+
+    img { height: 350px; border-radius: 0; border-left: none; }
+}.About {
+    background: white;
+}.About-label {
+    color: #c5a15b;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}.About-title {
+    color:#14213D;
+    font-weight: 700;
+    font-size: 40px;
+     font-family: 'Times New Roman', Times, serif;
+}
+.About-text {
+    color: #6b7280;
+    max-width: 650px;
+    margin: 15px auto ;
+    font-size: 17px;
+    font-family: 'Times New Roman', Times, serif;
+}.feature-card {
+    border-radius: 14px;
+    transition: 0.3s;
+}.feature-card:hover {
+    transform: translateY(-6px);
+    border-top: 4px solid #c5a15b;
+    box-shadow: 0 0px 3px black;
+}.icon-box {
+    width: 56px;
+    height: 56px;
+    background: #eef1f5;
+    color:#14213D;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}.feature-card:hover .icon-box {
+    background: #14213D;
+    color: #c5a15b;
+}.card-title {
+    color: #14213D;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+ .card-text {
+    color: #6b7280;
+    line-height: 1.6;
+}.services {
+    background: #f5f7fb;
+}
+
+.services-label {
+    color: #c5a15b;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.services-title {
+    color: #14213D;
+    font-weight: 700;
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.services-text {
+    color: #6b7280;
+    max-width: 650px;
+    margin: 15px auto 0;
+    font-size: 17px;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* Card */
+.service-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0px 3px black;
+}
+
+.service-card .card-title {
+    color: #14213D;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;          /* space between icon and title */
+}
+.service-card .card-text {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+
+
+ </style>
+</head>
+
+<body>
+ <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a href="" class="navbar-brand">
+        <i class="fa-solid fa-scale-balanced" style="color:#c5a15b;"></i>
+         <span>Qanoon
+      </a>
+        <div class="navbar-nav me-auto ms-5" style="gap: 25px;" >
+            
+            <a href="" class="nav-link">About</a>
+            <a href="" class="nav-link">Services</a>
+            <a href="" class="nav-link">How it work</a>
+            <a href="" class="nav-link">Featured Lawyers</a>
+            <a href="" class="nav-link">Testimonials</a>
+            <a href="" class="nav-link">Conatct</a>
+        </div>
+            <div class="d-flex gap-2 me-4">
+    <button> <i class="fa-solid fa-arrow-right-to-bracket"></i>Log In</button>
+    <button id="btn"><i class="fa-solid fa-user-plus"></i>Get Started</button>
+</div>
+        </div> 
+     </nav> 
+     <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-7 hero-content">
+                    <span class="hero-badge"> <i class="fa-solid fa-shield-halved"></i> Your Trusted Digital Legal Partner
+                </span>
+                    <h1 class="title"> Legal Support,<br>
+                    <span class="span1">Made Simple & Accessible</span>
+                    </h1>
+                    <p class="hero-text">Connect with qualified lawyers, manage legal cases and explain <br> your
+                    legal problems through convenient voice recording.</p>
+                    <div class="d-flex gap-2 me-4" >
+                        <button id="btn2">Get Started <i class="fa-solid fa-arrow-right"></i></button>
+                        <button id="btn3"><i class="fa-solid fa-magnifying-glass"></i> Find a Lawyer</button>
+                    </div>
+                </div>
+                 <div class="col-lg-5">
+                    <img src="WhatsApp Image 2026-11-03 at 14.42.39.jpeg" alt="">
+                </div> 
+            </div>
+        </div>
+      </section>
+      <section class="About py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="About-label">
+               ABOUT THE PLATFORM
+                </p>
+                <h2 class="About-title">Built for Modern Legal Excellence</h2>
+                <p class="About-text">LCMS combines litigation management, intelligent scheduling, bar-verified 
+                attorney<br> matching, and direct voice memo dictation into a unified, secure
+                web platform.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <div class="icon-box"><i class="fa-solid fa-scale-balanced"></i></div>
+                            <h5 class="card-title">End-to-End Case Lifecycle</h5>
+                            <p class="card-text">Manage legal cases from the initial client registration to court proceedings and final case decisions,
+                                 all in one place.</p></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body p-4">
+                        <div class="icon-box"><i class="fa-solid fa-certificate"></i></div>
+                        <h5 class="card-title">Bar-Verified Advocates</h5>
+                        <p class="card-text">
+                           Every lawyer's license is checked and verified by
+                            the admin before they can provide services to clients.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body p-4">
+                        <div class="icon-box"><i class="fa-solid fa-microphone"></i></div>
+                        <h5 class="card-title">Voice Problem Dictation</h5>
+                        <p class="card-text">Clients can record their legal problems using their browser, helping lawyers better understand their
+                             issues before consultations or court hearings.
+                            </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+      </section>
+      <section class="services py-5">
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="text-center mb-5">
+            <p class="services-label">CORE CAPABILITIES</p>
+            <h2 class="services-title">Comprehensive Legal Solutions</h2>
+            <p class="services-text">
+                Everything attorneys, corporate legal counsel, and individual clients need
+                to navigate complex court proceedings with clarity and confidence.
+            </p>
+        </div>
+        <!-- Cards -->
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title"><i class="fa-solid fa-calendar-check"></i>Appointment Booking</h5>
+                        <p class="card-text">Clients can request appointments with their chosen lawyers by selecting a date and time, while lawyers 
+                            can accept or reject requests and manage their schedules.
+                            </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title"><i class="fa-solid fa-magnifying-glass"></i>Lawyer Search & Profile</h5>
+                        <p class="card-text">
+                            Clients can search for lawyers by specialization and view their profiles, including qualifications,
+                             experience, and bar registration details, to choose the right one.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title"><i class="fa-solid fa-user-check"></i>
+             Lawyer Verification</h5>
+                        <p class="card-text">
+                           Administrators verify lawyers registration details and credentials before approving their profiles,
+                            so only verified lawyers can offer services on the platform.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title"><i class="fa-solid fa-folder-open"></i> Document Management</h5>
+                        <p class="card-text">Clients and lawyers can securely upload, store, and manage
+                             case documents in one place for easy access anytime..
+                           </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title"><i class="fa-solid fa-list-check"></i>Case Tracking</h5>
+                        <p class="card-text">Clients can track their case progress, view the current status 
+                            and receive updates from their assigned lawyers.
+                             </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title"><i class="fa-solid fa-bell"></i>Notification & Reminder</h5>
+                        <p class="card-text">Users get timely notifications about appointments, court hearings, meetings
+                             and case updates so they never miss important information..
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
