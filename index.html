@@ -156,7 +156,6 @@ img{
 }.services {
     background: #f5f7fb;
 }
-
 .services-label {
     color: #c5a15b;
     font-weight: 700;
@@ -164,14 +163,12 @@ img{
     font-size: 14px;
     margin-bottom: 8px;
 }
-
 .services-title {
     color: #14213D;
     font-weight: 700;
     font-size: 40px;
     font-family: 'Times New Roman', Times, serif;
 }
-
 .services-text {
     color: #6b7280;
     max-width: 650px;
@@ -185,28 +182,204 @@ img{
     border-radius: 14px;
     transition: 0.3s;
 }
-
 .service-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 0px 3px black;
 }
-
 .service-card .card-title {
     color: #14213D;
     font-weight: 700;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
-    gap: 10px;          /* space between icon and title */
+    gap: 10px;         
 }
 .service-card .card-text {
     color: #6b7280;
     line-height: 1.6;
     margin-bottom: 0;
 }
+.how {
+    background: white;
+}
 
+.how-label {
+    color: #c5a15b;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-family: 'Times New Roman', Times, serif;
+}
 
+.how-title {
+    color: #14213D;
+    font-weight: 700;
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
 
+.how-text {
+    color: #6b7280;
+    max-width: 680px;
+    margin: 15px auto 0;
+    font-size: 17px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Number circle */
+.step-number {
+    width: 52px;
+    height: 52px;
+    background: #14213D;
+    color: #c5a15b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 auto 18px;   /* centers the circle */
+    box-shadow: 0 0px 4px black;
+}
+
+.step-title {
+    color: #14213D;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.step-text {
+    color: #6b7280;
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto;
+}
+.trust {
+    background: white;
+}
+
+.trust-label {
+    color:#c5a15b;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.trust-title {
+    color: #14213D;
+    font-weight: 700;
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.trust-text {
+    color: #6b7280;
+    max-width: 600px;
+    margin: 15px auto 0;
+    font-size: 17px;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* Card */
+.trust-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    transition: 0.3s;
+}
+
+.trust-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 4px black;
+}
+
+.trust-icon {
+    font-size: 20px;
+    color: #14213D;
+    margin-bottom: 14px;
+}
+
+.trust-card:hover .trust-icon {
+    color: #c5a15b;
+}
+
+ .card-title {
+    color: #14213D;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}.cta-section {
+    background: #f5f7fb;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, #0b1a3a, #1b2f57);
+    border-radius: 20px;
+    padding: 70px 30px;
+    box-shadow: 0 0px 2px black;
+}
+
+.cta-title {
+    color: white;
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cta-text {
+    color: #e5e7eb;
+    font-size: 19px;
+    line-height: 1.6;
+    max-width: 620px;
+    margin: 0 auto 35px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-buttons a {
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    font-size: 19px;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cta-btn {
+    background: #c5a15b;
+    color: #14213D;
+    border: 1px solid #c5a15b;
+}
+
+.cta-btn-outline {
+    background: transparent;
+    color: white;
+    border: 1px solid gray;
+}
+
+.cta-buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0px 8px #c5a15b;
+}
+
+@media (max-width: 767px) {
+    .cta-title { font-size: 28px; }
+}
  </style>
 </head>
 
@@ -217,13 +390,11 @@ img{
         <i class="fa-solid fa-scale-balanced" style="color:#c5a15b;"></i>
          <span>Qanoon
       </a>
-        <div class="navbar-nav me-auto ms-5" style="gap: 25px;" >
-            
+        <div class="navbar-nav me-auto ms-5" style="gap: 50px;" >
             <a href="" class="nav-link">About</a>
             <a href="" class="nav-link">Services</a>
             <a href="" class="nav-link">How it work</a>
             <a href="" class="nav-link">Featured Lawyers</a>
-            <a href="" class="nav-link">Testimonials</a>
             <a href="" class="nav-link">Conatct</a>
         </div>
             <div class="d-flex gap-2 me-4">
@@ -310,7 +481,7 @@ img{
             <h2 class="services-title">Comprehensive Legal Solutions</h2>
             <p class="services-text">
                 Everything attorneys, corporate legal counsel, and individual clients need
-                to navigate complex court proceedings with clarity and confidence.
+               <br> to navigate complex court proceedings with clarity and confidence.
             </p>
         </div>
         <!-- Cards -->
@@ -382,6 +553,139 @@ img{
                             </p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="how py-5" id="how">
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="text-center mb-5">
+            <p class="how-label">SIMPLIFIED PROCESS</p>
+            <h2 class="how-title">How LCMS Works</h2>
+            <p class="how-text">
+                Get started in minutes whether you are an attorney managing multi-jurisdiction
+               <br> matters or a client seeking certified legal representation.
+            </p>
+        </div>
+
+        <!-- Steps -->
+        <div class="row g-4 text-center">
+
+            <div class="col-md-4">
+                <div class="step-number">1</div>
+                <h5 class="step-title">Create Your Account</h5>
+                <p class="step-text">
+                Register as a Clients or Lawyers. Lawyers can submit their professional 
+                details and bar registration information for verification.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <div class="step-number">2</div>
+                <h5 class="step-title">Lawyer Search & Book Appointment</h5>
+                <p class="step-text">
+                    Browser lawyer profiles,explore specializations, book appointments,
+                      record legal concerns through voice recording.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <div class="step-number">3</div>
+                <h5 class="step-title">Manage & Track Case</h5>
+                <p class="step-text"> Stay updated on your case progress track case progress, manage legal documents,
+                     receive notifications and case updates.
+                   </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="trust py-5">
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="text-center mb-5">
+            <p class="trust-label">SECURITY &amp; PRECISION</p>
+            <h2 class="trust-title">Why Top Firms Trust LCMS</h2>
+            <p class="trust-text">
+                Designed specifically to meet the rigorous confidentiality and <br> evidentiary
+                standards demanded by the legal profession.
+            </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card trust-card h-100 text-center">
+                    <div class="card-body p-4">
+                        <i class="fa-solid fa-lock trust-icon"></i>
+                        <h5 class="card-title">Privileged Security</h5>
+                        <p class="card-text">
+                            Keep client information and legal documents safe and secure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card trust-card h-100 text-center">
+                    <div class="card-body p-4">
+                        <i class="fa-solid fa-clock-rotate-left trust-icon"></i>
+                        <h5 class="card-title">Real-Time Audit Trail</h5>
+                        <p class="card-text">
+                           Record important case updates and changes with dates and times.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card trust-card h-100 text-center">
+                    <div class="card-body p-4">
+                        <i class="fa-solid fa-microphone trust-icon"></i>
+                        <h5 class="card-title">Voice-Based Explanation</h5>
+                        <p class="card-text">
+                            Allow clients to record their legal probelms through voice instead of 
+                            typing. 
+
+            
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card trust-card h-100 text-center">
+                    <div class="card-body p-4">
+                        <i class="fa-solid fa-folder-open trust-icon"></i>
+                        <h5 class="card-title">Digital Case Management</h5>
+                        <p class="card-text">
+                            Manage Case details, legal documents and records in secure and organize
+                            platform.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="cta-box text-center">
+            <h2 class="cta-title">Ready to Experience Modern Legal Management?</h2>
+            <p class="cta-text">
+                Join hundreds of legal practitioners and clients who manage their <br> matters
+                with superior efficiency, transparency, and security.
+            </p>
+            <div class="cta-buttons">
+                <a href="register.html" class="cta-btn">
+                    <i class="fa-solid fa-user-plus"></i> Create Your Account
+                </a>
+                <a href="login.html" class="cta-btn-outline">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In to Portal
+                </a>
             </div>
         </div>
     </div>
