@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Login | Qanoon LCMS</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: white;
+            display: flex;
+            justify-content: center;
+            font-family: 'Times New Roman', Times, serif;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 430px;
+            background: whitesmoke;
+            padding: 40px 35px;
+            border-radius: 15px;
+            box-shadow: 0 0px 10px black;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading h1 {
+            color: #14243A;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+        .heading p {
+            color: #777;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            color: #26384D;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d5dbe3;
+            border-radius: 7px;
+            outline: none;
+            font-size: 14px;
+        } input:focus {
+            border-color: #C5A15B;
+            box-shadow: 0 0 5px rgba(197, 161, 91, 0.3);
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+            font-size: 13px;
+        }
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #555;
+        }
+        .options a {
+            color: #14243A;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .options a:hover {
+            color: #C5A15B;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: #14243d;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }.login-btn:hover{
+            color: #C5A15B;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 22px;
+            color: #666;
+            font-size: 14px;
+        }
+        .register-link a {
+            color: #14243A;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            color: #C5A15B;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 22px;
+            }
+
+            .heading h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="heading">
+            <h1>Login page</h1>
+            <p>Welcome Back! Login to your account</p>
+        </div>
+
+        <form>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required>
+            </div>
+
+            <div class="options">
+                <label class="remember">
+                    <input type="checkbox">
+                    Remember Me
+                </label>
+                <a href="forgot-password.html">Forgot Password?</a>
+
+            </div>
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+
+        </form>
+
+        <div class="register-link">
+            Don't have an account?
+            <a href="web.html">Register Now</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

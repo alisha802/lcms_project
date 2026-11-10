@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCMS - Lawyer Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+             background:white;
+            min-height: 100vh;
+            padding: 30px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: flex;
+        }
+        .container {
+            background: whitesmoke;
+            width: 100%;
+            max-width: 560px;
+            padding: 38px 32px;
+            border: 1px solid #d1dedb;
+            border-radius: 16px;
+            box-shadow: 10px 10px 20px black ;
+        }
+        h1 {
+            color: #14213d;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+        .profile-circle {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: 2px dashed #b8ceca;
+            background: #f0f6f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #647b78;
+            font-size: 13px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .profile-circle:hover {
+            border-color: #14243d;
+            background: #e6f5f3;
+        }
+        .picture-input {
+            display: none;
+        }
+        .upload-text label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #14213d;
+        }
+        .upload-text p {
+            color: #718096;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-row {
+            display: flex;
+            gap: 16px;
+        }
+        .form-row .form-group {
+            flex: 1;
+            min-width: 0;
+        }
+         label {
+            display: block;
+            margin-bottom: 8px;
+            color: #14213d;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        input {
+            width: 100%;
+            padding: 14px 12px;
+            border: 1px solid #cbd8d5;
+            border-radius: 9px;
+            font-size: 14px;
+            outline: none;
+            background: white;
+        }
+        input:focus {
+            border-color:#14213d;
+            box-shadow:  0 0 3px #14213d;
+        }
+        .help-text {
+            display: block;
+            color: #718096;
+            font-size: 12px;
+            margin-top: 7px;
+        }
+        select {
+    width: 100%;
+    padding: 14px 12px;
+    border: 1px solid #cbd8d5;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    color: #14213d;
+    cursor: pointer;
+}
+select:focus {
+    border-color: #14213d;
+    box-shadow: 0 0 3px #14213d;
+}
+        .register-btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 5px;
+            background: #14243d;
+            color: white; 
+            border: none;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .register-btn:hover{
+            color: #C5A15B;
+        }
+        .login-text {
+            text-align: center;
+            margin-top: 22px;
+            color: #64748b;
+            font-size: 14px;
+        }
+        .login-text a {
+            color: #14243d;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-text a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 15px 10px;
+            }
+            .container {
+                padding: 25px 18px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .profile-circle {
+                width: 85px;
+                height: 85px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lawyer Registration Form</h1>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div class="profile-section">
+                <label for="picture" class="profile-circle">
+                    No photo
+                </label>
+                <input
+                    type="file"
+                    id="picture"
+                    name="profilePicture"
+                    class="picture-input"
+                    accept="image/*">
+                <div class="upload-text">
+                    <label for="picture">Profile picture</label>
+                    <p>Click the circle to choose a photo.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fullname">Full name</label>
+                <input
+                    type="text"
+                    id="fullname"
+                    name="fullname"
+                    placeholder="Enter full name"
+                    required>
+             <br><br>   <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter email"
+                    required
+                >
+             </div> 
+             <div class="form-row"> 
+                <div class="form-group">
+                    <label for="phone">Phone number</label>
+                    <input
+             type="tel" id="phone" name="phone" pattern="[0-9]{11}" maxlength="11" size="25"
+                        required>
+                  </div>  
+                  <div class="form-group">  
+                    <label for="cnic">CNIC</label>
+                    <input
+                        type="text"
+                        id="cnic"
+                        name="cnic"
+                        pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}"
+                        maxlength="15"
+                        size="25"
+                        required>
+                </div>
+             </div> 
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        minlength="8"
+                        placeholder="Enter password"
+                        required>
+                    <p class="help-text">At least 8 characters</p>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        minlength="8"
+                        placeholder="Confirm password"
+                        required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="text">Bar Council/Licence Number</label>
+                    <input
+                        type="text"
+                        id="text"
+                        name="text"
+                        placeholder="e.g PBC-12345"
+                        required>
+                </div>
+                <div class="form-group">
+    <label for="legalspecialization">Legal Specialization</label>
+
+    <select id="legalspecialization"
+            name="legalspecialization"
+            required>
+        <option value="" disabled selected>Select Specialization</option>
+        <option value="civil">Civil Rights & Employment Law</option>
+        <option value="property">Real Estate & Property Litigation</option>
+        <option value="family">Family & Estate Law</option>
+        <option value="intellectual">Intellectual Property & Patents</option>
+        <option value="criminal">Criminal Defense & White Collar</option>
+        <option value="Cooperate">Cooperate & Commercial Law</option>
+
+    </select>
+</div>
+            </div>
+            <button type="submit" class="register-btn">
+                Register
+            </button>
+            <p class="login-text">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>
