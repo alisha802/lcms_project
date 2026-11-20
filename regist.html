@@ -151,10 +151,48 @@ select:focus {
             font-weight: bold;
             text-decoration: none;
         }
+        .terms {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin: 4px 0 10px;
+            font-size: 11px;
+            font-weight: normal;
+            color: #14213d;
+            cursor: pointer;
+        }
+        .terms input[type="checkbox"] {
+            width: 14px;
+            height: 14px;
+            padding: 0;
+            flex-shrink: 0;
+            accent-color: #14243d;
+            cursor: pointer;
+        }
+        .terms a {
+             color: #C5A15B;
+             text-decoration: none
+             ; }
+        .terms a:hover {
+             text-decoration: underline;
+             }
 
         .login-text a:hover {
             text-decoration: underline;
+        }.verify-note {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            background: #fff8e6;
+            border-left: 3px solid #f0b429;
+            border-radius: 6px;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            font-size: 11px;
+            line-height: 1.4;
+            color: #8a3b0c;
         }
+        .verify-note svg { flex-shrink: 0; margin-top: 1px; }
         @media (max-width: 480px) {
             body {
                 padding: 15px 10px;
@@ -254,6 +292,10 @@ select:focus {
                         required>
                 </div>
             </div>
+            <div class="verify-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#8a3b0c" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>
+                <span><strong>Bar License Verification Required:</strong> Newly registered advocate accounts are subject to administrative credentials validation before taking cases.</span>
+            </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="text">Bar Council/Licence Number</label>
@@ -281,6 +323,10 @@ select:focus {
     </select>
 </div>
             </div>
+            <label class="terms" for="terms1">
+                <input type="checkbox" id="terms1" name="terms" required>
+                <span>I agree to the <a href="#">Terms of Legal Service</a> and <a href="#">Confidentiality Protocol</a>.</span>
+            </label> 
             <button type="submit" class="register-btn">
                 Register
             </button>

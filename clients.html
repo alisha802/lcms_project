@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clients Directory | LCMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background: #f5f7fb;
+            margin: 0;
+        }
+        .logo-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+} 
+ .logo-text:hover{
+    color: #c5a15b;
+}
+        .sidebar {
+            position: fixed;
+            width: 260px;
+            height: 100vh;
+            background:#14213d;
+            padding: 20px 15px;
+            overflow-y: auto;
+        }
+        .sidebar h3 {
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .sidebar h3 i {
+            color: #c5a15b;
+        }
+
+        .sidebar h3 span {
+            background: #3a3a3a;
+            color: #c5a15b;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+        .sidebar p {
+            color: #8a94a8;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 22px 0 8px 10px;
+        }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 11px 14px;
+            border-radius: 10px;
+            font-weight: 500;
+
+        }
+
+        .sidebar a:hover {
+            background:0px 0px 2px black;
+            color: white;
+        }
+
+        .sidebar a.active {
+            background: #1b2a4e;
+            color: white;
+            border-left: 3px solid #c5a15b;
+        }
+
+        .sidebar a.active i {
+            color: #c5a15b;
+        }
+.sidebar a i {
+    font-size: 18px;
+}
+
+.sidebar a:hover i {
+    color: #c5a15b;
+}
+        @media (max-width: 991px) {
+            .sidebar { display: none; }
+           
+        }
+
+        /* ---------- MAIN ---------- */
+        .main-content {
+            margin-left: 250px;
+        }
+
+        .topbar {
+            background: white;
+            padding: 14px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .menu-btn {
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: #14213D;
+        }
+        .search-box {
+            width: 320px;
+            border-radius: 25px;
+            background: #f1f3f7;
+            border: 1px solid #e5e7eb;
+            padding: 8px 18px;
+            font-size: 14px;
+        }
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .lawyer-view {
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #14213D;
+            text-decoration: none;
+        }
+
+        .lawyer-view i {
+            color: #c5a15b;
+        }
+
+        .profile-btn {
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #14213D;
+        }
+
+        .profile-btn img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #c5a15b;
+        }
+
+        /* ---------- PAGE ---------- */
+        .page-title {
+            font-family: 'Poppins', sans-serif;
+            color: #14213D;
+            font-weight: 700;
+            font-size: 28px;
+            margin: 0;
+        }
+        .text {
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 400;
+        }
+        .text a {
+    color: #6b7280;
+    text-decoration: none;
+}
+.text a:hover {
+    color: #c5a15b;
+}
+        .text b {
+            color: #14213D;
+            font-weight: 600;
+        }
+        /* ---------- CLIENT CARD ---------- */
+        .client-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 24px;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .client-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 2px #14213d;
+        }
+
+        /* Photo + naam */
+        .client-photo {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #c5a15b;
+        }
+
+        .client-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #14213D;
+            margin: 0;
+        }
+
+        .city-badge {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #3b6fd4;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+
+        /* Contact info */
+        .client-info {
+            margin: 18px 0 14px;
+            color: #4b5563;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .client-info i {
+            color: #4b5563;
+            margin-right: 6px;
+        }
+
+        /* Associated cases */
+        .cases-box {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 14px;
+            min-height: 120px;
+        }
+
+        .cases-label {
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .case-item {
+            color: #14213D;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        /* Message button */
+        .msg-btn {
+            width: 100%;
+            background: white;
+            color: #14213D;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 7px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .msg-btn:hover {
+            background: #14213D;
+            color: white;
+        }
+
+        /* Popup */
+        .modal-content {
+            border: none;
+            border-radius: 12px;
+        }
+
+        .modal-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: #14213D;
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .form-control:focus {
+            border-color: #14213D;
+            box-shadow: none;
+        }
+
+        .btn-dark-main {
+            background: #14213D;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #14213D;
+        }
+
+        .btn-dark-main:hover {
+            background: #1b2f57;
+            color: #c5a15b;
+        }
+
+        .btn-light-main {
+            background: white;
+            color: #14213D;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 991px) {
+            .sidebar {
+                left: -250px;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .search-box {
+                width: 180px;
+            }
+
+            .lawyer-view,
+            .profile-name {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--  SIDEBAR  -->
+<div class="sidebar">
+
+    <h3><i class="fa-solid fa-scale-balanced"></i>  <b class="logo-text">Qanoon</b> <span>LAWYER</span></h3>
+
+    <p>CHAMBERS OVERVIEW</p>
+    <a href="Lawyer(dashboard).html" class="active"><i class="bi bi-speedometer2"></i> Dashboard</a>
+
+    <p>PRACTICE MANAGEMENT</p>
+    <a href="cases.html"><i class="bi bi-briefcase-fill"></i> My Cases</a>
+    <a href="clients.html"><i class="bi bi-people-fill"></i> Clients</a>
+    <a href="hearings.html"><i class="bi bi-calendar3"></i> Hearing Schedule</a>
+    <a href="appointments.html"><i class="bi bi-calendar-check"></i> Appointments</a>
+
+    <p>VAULT & CLIENT MEMOS</p>
+    <a href="documents.html"><i class="bi bi-folder2-open"></i> Documents Vault</a>
+    <a href="recordings.html"><i class="bi bi-mic"></i> Voice Recordings</a>
+    <a href="notifications.html"><i class="bi bi-bell-fill"></i> Notifications</a>
+
+    <p>COUNSEL ACCOUNT</p>
+    <a href="profile.html"><i class="bi bi-person-vcard"></i> My Profile</a>
+
+</div>
+<div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="topbar-left">
+            <button class="menu-btn">
+                <i class="bi bi-list"></i>
+            </button>
+            <input type="text" class="form-control search-box" placeholder="Search my caseload...">
+        </div>
+        <div class="topbar-right">
+            <a class="lawyer-view"><i class="fa-solid fa-gavel"></i> Lawyer View</a>
+
+            <div class="dropdown">
+                <button class="profile-btn" data-bs-toggle="dropdown">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah">
+                    <span class="profile-name">Sarah Jenkins, Esq.</span>
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page body -->
+    <div class="p-4">
+
+        <!-- Header -->
+        <div class="mb-3">
+    <h1 class="page-title">Represented Clients</h1>
+    <p class="text mt-2"><a href="Lawyer(dashboard).html">Lawyer</a> / Overview</p>
+</div>
+        
+        <div class="row g-4">
+
+            <!-- Client 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="client-card">
+
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="client-photo" alt="">
+                        <div>
+                            <h5 class="client-name">Ahmad Raza</h5>
+                            <span class="city-badge">Lahore</span>
+                        </div>
+                    </div>
+
+                    <div class="client-info">
+                        <div><i class="bi bi-envelope-fill"></i> ahmad@example.com</div>
+                        <div><i class="bi bi-telephone-fill"></i> +92 333 7891234</div>
+                        <div><i class="bi bi-geo-alt-fill"></i> 742 Gulberg III, Main Boulevard</div>
+                    </div>
+
+                    <div class="cases-box">
+                        <p class="cases-label">Associated Cases (2):</p>
+                        <div class="case-item">• Property Dispute: Raza vs. Defence Housing Authority.</div>
+                        <div class="case-item">• Estate Settlement: The Hastings Trust Distribution</div>
+                    </div>
+
+                    <button class="msg-btn" data-bs-toggle="modal" data-bs-target="#msgModal1">
+                        <i class="bi bi-chat-dots-fill"></i> Message Client
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Client 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="client-card">
+
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" class="client-photo" alt="">
+                        <div>
+                            <h5 class="client-name">Ayesha Khan</h5>
+                            <span class="city-badge">Karachi</span>
+                        </div>
+                    </div>
+
+                    <div class="client-info">
+                        <div><i class="bi bi-envelope-fill"></i> ayesha@example.com</div>
+                        <div><i class="bi bi-telephone-fill"></i> +92 890-12234</div>
+                        <div><i class="bi bi-geo-alt-fill"></i> 12 Clifton Block 5, Sea View Road</div>
+                    </div>
+
+                    <div class="cases-box">
+                        <p class="cases-label">Associated Cases (1):</p>
+                        <div class="case-item">• Merger &amp; Regulatory Approval: SECP Review for Khan Textiles</div>
+                    </div>
+
+                    <button class="msg-btn" data-bs-toggle="modal" data-bs-target="#msgModal2">
+                        <i class="bi bi-chat-dots-fill"></i> Message Client
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Client 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="client-card">
+
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" class="client-photo" alt="Michael Brown">
+                        <div>
+                            <h5 class="client-name">Bilal Ahmad</h5>
+                            <span class="city-badge">Islamabad</span>
+                        </div>
+                    </div>
+
+                    <div class="client-info">
+                        <div><i class="bi bi-envelope-fill"></i> bilal.@example.com</div>
+                        <div><i class="bi bi-telephone-fill"></i> +92 555 9012345</div>
+                        <div><i class="bi bi-geo-alt-fill"></i> House 18, Street 7, F-8/3</div>
+                    </div>
+
+                    <div class="cases-box">
+                        <p class="cases-label">Associated Cases (1):</p>
+                        <div class="case-item">• State vs. Ahmed Trading Company</div>
+                    </div>
+
+                    <button class="msg-btn" data-bs-toggle="modal" data-bs-target="#msgModal3">
+                        <i class="bi bi-chat-dots-fill"></i> Message Client
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Client 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="client-card">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="https://randomuser.me/api/portraits/men/46.jpg" class="client-photo" alt="Ali">
+                        <div>
+                            <h5 class="client-name">Ali</h5>
+                            <span class="city-badge">Kamoke</span>
+                        </div>
+                    </div>
+
+                    <div class="client-info">
+                        <div><i class="bi bi-envelope-fill"></i> ali@gmail.com</div>
+                        <div><i class="bi bi-telephone-fill"></i> 1234567890</div>
+                        <div><i class="bi bi-geo-alt-fill"></i> Address on file</div>
+                    </div>
+
+                    <div class="cases-box">
+                        <p class="cases-label">Associated Cases (0):</p>
+                    </div>
+
+                    <button class="msg-btn" data-bs-toggle="modal" data-bs-target="#msgModal4">
+                        <i class="bi bi-chat-dots-fill"></i> Message Client
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Popup 1 -->
+<div class="modal fade" id="msgModal1" >
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 440px;">
+        <div class="modal-content">
+            <form action="clients.html" method="">
+                <div class="modal-header ">
+                   <h5 class="modal-title"><i class="bi bi-chat-dots-fill"></i> Message Ahmed Raza</h5> 
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body ">
+                    <label class="form-label">Your message</label>
+                    <textarea class="form-control" rows="4" placeholder="Type your message here..."></textarea>
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn-light-main" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn-dark-main"><i class="bi bi-send-fill"></i> Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Popup 2 -->
+<div class="modal fade" id="msgModal2" >
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 440px;">
+        <div class="modal-content">
+            <form action="clients.html" method="">
+                <div class="modal-header ">
+                   <h5 class="modal-title"><i class="bi bi-chat-dots-fill"></i> Message Ayesha Khan</h5>    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body ">
+                    <label class="form-label">Your message</label>
+                    <textarea class="form-control" rows="4" placeholder="Type your message here..."></textarea>
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn-light-main" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn-dark-main"><i class="bi bi-send-fill"></i> Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Popup 3 -->
+<div class="modal fade" id="msgModal3" >
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 440px;">
+        <div class="modal-content">
+            <form action="clients.html" method="post">
+                <div class="modal-header ">
+                    <h5 class="modal-title"><i class="bi bi-chat-dots-fill"></i> Message Bilal Ahmed</h5> 
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body ">
+                    <label class="form-label">Your message</label>
+                    <textarea class="form-control" rows="4" placeholder="Type your message here..."></textarea>
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn-light-main" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn-dark-main"><i class="bi bi-send-fill"></i> Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Popup 4 -->
+<div class="modal fade" id="msgModal4" >
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 440px;">
+        <div class="modal-content">
+            <form action="clients.html" method="">
+                <div class="modal-header ">
+                    <h5 class="modal-title"><i class="bi bi-chat-dots-fill"></i> Message Ali</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body ">
+                    <label class="form-label">Your message</label>
+                    <textarea class="form-control" rows="4" placeholder="Type your message here..."></textarea>
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn-light-main" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn-dark-main"><i class="bi bi-send-fill"></i> Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

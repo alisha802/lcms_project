@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointments | LCMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background: #f5f7fb;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: #14213D;
+        }
+
+        /* ---------- SIDEBAR ---------- */
+        .logo-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 26px;
+        }
+
+        .logo-text:hover {
+            color: #c5a15b;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #14213d;
+            padding: 20px 15px;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar h3 {
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h3 i {
+            color: #c5a15b;
+        }
+
+        .sidebar h3 span {
+            background: #3a3a3a;
+            color: #c5a15b;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+
+        .sidebar p {
+            color: #8a94a8;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin: 20px 0 8px 10px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 11px 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: 0px 0px 2px black;
+            color: white;
+        }
+
+        .sidebar a.active {
+            background: #1b2a4e;
+            color: white;
+            border-left: 3px solid #c5a15b;
+        }
+
+        .sidebar a.active i {
+            color: #c5a15b;
+        }
+
+        .sidebar a i {
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover i {
+            color: #c5a15b;
+        }
+
+        /* ---------- MAIN ---------- */
+        .main-content {
+            margin-left: 260px;
+        }
+
+        .topbar {
+            background: white;
+            padding: 14px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .topbar-left,
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: #14213D;
+        }
+
+        .search-box {
+            width: 320px;
+            border-radius: 25px;
+            background: #f1f3f7;
+            border: 1px solid #e5e7eb;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .lawyer-view {
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 6px 15px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #14213D;
+            text-decoration: none;
+        }
+
+        .lawyer-view i {
+            color: #c5a15b;
+        }
+
+        .profile-btn {
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #14213D;
+        }
+
+        .profile-btn img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #c5a15b;
+        }
+
+        /* ---------- PAGE ---------- */
+        .page-title {
+            font-family: 'Poppins', sans-serif;
+            color: #14213D;
+            font-weight: 650;
+            font-size: 30px;
+            margin: 0;
+        }
+
+        .text {
+            color: #6b7280;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .text a {
+            color: #6b7280;
+            text-decoration: none;
+        }
+
+        .text a:hover {
+            color: #c5a15b;
+        }
+
+        .text b {
+            color: #14213D;
+            font-weight: 600;
+        }
+
+        /* White box */
+        .box {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .box-head {
+            padding: 22px 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .box-title {
+            font-family: 'Poppins', sans-serif;
+            color: #14213D;
+            font-weight: 600;
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .box-title i {
+            color: #c5a15b;
+            margin-right: 6px;
+        }
+
+        .box-sub {
+            color: #6b7280;
+            font-size: 14px;
+            margin: 4px 0 0;
+        }
+
+        /* Table */
+        .app-table th {
+            background: #f5f7fb;
+            color: #6b7280;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 14px 16px;
+        }
+
+        .app-table td {
+            padding: 14px 16px;
+            vertical-align: middle;
+            color: #14213D;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .app-table b {
+            font-weight: 600;
+        }
+
+        .app-table .text-secondary {
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        /* Badges */
+        .format-badge {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 7px 14px;
+        }
+
+        .status-badge {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 7px 14px;
+        }
+
+        /* Small action buttons */
+        .btn-ok {
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .btn-no {
+            background: white;
+            color: #dc3545;
+            border: 1px solid #dc3545;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .btn-ok:hover {
+            background: #059669;
+            color: white;
+        }
+
+        .btn-no:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        /* Focus */
+        .form-control:focus,
+        .form-select:focus {
+            background-color: #ffffff ;
+            border-color: #14213d;
+            box-shadow: none ;
+            outline: none ;
+        }
+
+        @media (max-width: 991px) {
+            .sidebar {
+                left: -260px;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .search-box {
+                width: 180px;
+            }
+
+            .lawyer-view,
+            .profile-name {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--  SIDEBAR -->
+<div class="sidebar">
+
+    <h3><i class="fa-solid fa-scale-balanced"></i> <b class="logo-text">Qanoon</b> <span>LAWYER</span></h3>
+
+    <p>CHAMBERS OVERVIEW</p>
+    <a href="Lawyer(dashboard).html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+
+    <p>PRACTICE MANAGEMENT</p>
+    <a href="cases.html"><i class="bi bi-briefcase-fill"></i> My Cases</a>
+    <a href="clients.html"><i class="bi bi-people-fill"></i> Clients</a>
+    <a href="hearings.html"><i class="bi bi-calendar3"></i> Hearing Schedule</a>
+    <a href="appointments.html" class="active"><i class="bi bi-calendar-check"></i> Appointments</a>
+
+    <p>VAULT & CLIENT MEMOS</p>
+    <a href="documents.html"><i class="bi bi-folder2-open"></i> Documents Vault</a>
+    <a href="recordings.html"><i class="bi bi-mic"></i> Voice Recordings</a>
+    <a href="notifications.html"><i class="bi bi-bell-fill"></i> Notifications</a>
+
+    <p>COUNSEL ACCOUNT</p>
+    <a href="profile.html"><i class="bi bi-person-vcard"></i> My Profile</a>
+
+</div>
+
+<!--  MAIN CONTENT  -->
+<div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="topbar-left">
+            <button class="menu-btn"><i class="bi bi-list"></i></button>
+            <input type="text" class="form-control search-box" placeholder="Search appointments...">
+        </div>
+        <div class="topbar-right">
+            <a  class="lawyer-view"><i class="fa-solid fa-gavel"></i> Lawyer View</a>
+            <div class="dropdown">
+                <button class="profile-btn" data-bs-toggle="dropdown">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah">
+                    <span class="profile-name">Sarah Jenkins, Esq.</span>
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page body -->
+    <div class="p-4">
+
+        <!-- Header -->
+        <div class="mb-4">
+            <h1 class="page-title">Consultation Bookings</h1>
+            <p class="text mt-2"><a href="Lawyer(dashboard).html">Lawyer</a> / <b>Appointments</b></p>
+        </div>
+
+        <!--  APPOINTMENTS BOX  -->
+        <div class="box">
+
+            <div class="box-head">
+                <h5 class="box-title"><i class="fa-solid fa-handshake"></i> Client Appointment Requests</h5>
+                <p class="box-sub">Manage consultation times, confirm meetings, or reschedule chamber meetings</p>
+            </div>
+            <table class="table app-table mb-0">
+                <thead>
+                    <tr>
+                        <th>DATE &amp; TIME</th>
+                        <th>CLIENT</th>
+                        <th>FORMAT</th>
+                        <th>PURPOSE & CONSULTATION BRIEF</th>
+                        <th>STATUS</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- Row 1: Completed -->
+                    <tr>
+                        <td>
+                            <b>2026-11-14</b><br>
+                            <small class="text-secondary">03:30 PM</small>
+                        </td>
+                        <td>
+                            <b>Ayesha Khan</b><br>
+                            <small class="text-secondary">ayesha.khan@example.com</small>
+                        </td>
+                        <td>
+                            <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis format-badge">In-Person Chamber Meeting</span>
+                        </td>
+                        <td>Property documents review and power of attorney formalities</td>
+                        <td>
+                            <span class="badge rounded-pill bg-success-subtle text-success-emphasis status-badge">Confirmed</span>
+                        </td>
+                        <td><small class="text-secondary">Completed</small></td>
+                    </tr>
+
+                    <!-- Row 2: Pending -->
+                    <tr>
+                        <td>
+                            <b>2026-11-25</b><br>
+                            <small class="text-secondary">04:00 PM</small>
+                        </td>
+                        <td>
+                            <b>Bilal Ahmed</b><br>
+                            <small class="text-secondary">bilal.ahmed@example.com</small>
+                        </td>
+                        <td>
+                            <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis format-badge">In-Person Chamber Meeting</span>
+                        </td>
+                        <td>Bail application and FIR case strategy discussion</td>
+                        <td>
+                            <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis status-badge">Pending</span>
+                        </td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <a href="#" class="btn-ok text-decoration-none"><i class="bi bi-check-lg"></i> Accept</a>
+                                <a href="#" class="btn-no text-decoration-none"><i class="bi bi-x-lg"></i> Decline</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
