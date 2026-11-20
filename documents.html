@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>documents</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            background: #f5f7fb;
+            margin: 0;
+        }
+ .logo-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+  .logo-text:hover{
+         color: #c5a15b;
+}
+.sidebar {
+            position: fixed;
+            width: 260px;
+            height: 100vh;
+            background:#14213d;
+            padding: 20px 15px;
+            overflow-y: scroll;
+        }
+ .sidebar h3 {
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h3 i {
+            color: #c5a15b;
+        }
+
+        .sidebar h3 span {
+            background: #3a3a3a;
+            color: #c5a15b;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+        .sidebar p {
+            color: #8a94a8;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 22px 0 8px 10px;
+        }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 11px 14px;
+            border-radius: 10px;
+            font-weight: 500;
+           
+        }
+
+        .sidebar a:hover {
+            background:0px 0px 2px black;
+            color: white;
+        }
+
+        .sidebar a.active {
+            background: #1b2a4e;
+            color: white;
+            border-left: 3px solid #c5a15b;
+        }
+        .sidebar a.active i {
+            color: #c5a15b;
+        }
+        .sidebar a i {
+         font-size: 18px;
+}
+         .sidebar a:hover i {
+         color: #c5a15b;
+}
+    .main-content {
+         margin-left:260px; 
+        }
+       
+        .topbar {
+            background:white;
+         padding:12px 28px;
+         display:flex; 
+         align-items:center;
+        justify-content:space-between;
+         border-bottom:1px solid #e5e7eb;
+         }
+        
+
+        .topbar-left,
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: #14213d;
+            font-size: 26px;
+        }
+
+        .search-box {
+            width: 330px;
+            padding: 8px 16px;
+            background: #f1f3f7;
+            border: 1px solid #e5e7eb;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+        .search-box::placeholder {
+            color: #6b7280;
+        }
+
+        .search-box:focus {
+            background: #ffffff;
+            border-color: #14213d;
+            box-shadow: 0 0 0 #14213d;
+        }
+
+        .client-view {
+            padding: 6px 15px;
+            background: #f8f9fb;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            color: #14213d;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .client-view i {
+            color: #c5a15b;
+        }
+        .profile-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: none;
+            border: none;
+            color: #14213d;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #14213d;
+            border: 2px solid #c5a15b;
+            border-radius: 50%;
+            color: white;
+            font-size: 13px;
+        }
+
+        .dropdown-menu .dropdown-item {
+         padding:9px 18px;
+          font-size:14px;
+           display:flex;
+            align-items:center;
+             gap:10px;
+             }
+    .page {
+            padding: 30px 32px;
+        }
+
+    .page h1 {
+            margin: 0 0 4px;
+            color: #14213d;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .text {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .text a {
+            color: #6b7280;
+            text-decoration: none;
+        }
+
+        .text b {
+            color: #14213d;
+        }
+
+        .btn-request {
+            padding: 10px 18px;
+            background: #14213d;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 14.5px;
+            font-weight: 600;
+        }
+
+        .btn-request:hover {
+            background: #1b2a4e;
+            color: white;
+            transform: translateY(-3px);
+            transition: 0.3s;
+        }
+        .schedule-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 0 #14213d;
+        }
+
+        .schedule-head {
+            padding: 24px 28px 18px;
+        }
+
+        .schedule-head h5 {
+            margin: 0;
+            color: #14213d;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .schedule-head h5 i {
+            margin-right: 6px;
+            color: #c5a15b;
+        }
+
+        .schedule-head p {
+            margin: 4px 0 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .schedule-table {
+            margin: 0;
+            font-size: 14.5px;
+        }
+
+        .schedule-table  th {
+            padding: 16px 20px;
+            background: #f8f9fb;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase
+        }
+
+        .schedule-table  td {
+            padding: 20px;
+            border-bottom: 1px solid #eef0f4;
+            color: #14213d;
+        }
+
+        .file-name {
+            font-weight: 600;
+        }
+
+        .file-name i {
+            margin-right: 10px;
+            font-size: 22px;
+        }
+
+        .file-word {
+            color: #2563eb;
+        }
+
+        .file-image {
+            color: #f97316;
+        }
+        .category-badge {
+            padding: 7px 14px;
+            background: #e8f0fe;
+            border-radius: 20px;
+            color: #2563eb;
+            font-size: 12.5px;
+            font-weight: 500;
+    
+        }
+        .btn-download {
+            padding: 6px 12px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            color: #14213d;
+        }
+
+        .btn-download:hover {
+            background: #14213d;
+            border-color: #14213d;
+            color: white;
+        }
+        .modal-header {
+            padding: 22px 28px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .modal-content {
+    border: none;
+    border-radius: 18px;
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+        .modal-title {
+            color: #14213d;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .modal-title i {
+            margin-right: 8px;
+            color: #c5a15b;
+        }
+
+        .modal-body {
+          padding: 22px 24px;
+          overflow-y: auto;
+         max-height: 65vh;
+        }
+
+        .modal-body label {
+            margin-bottom: 8px;
+            color: #1f2937;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .modal-body .form-control,
+        .modal-body .form-select {
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 13px;
+            font-family: 500;
+        }
+
+        .modal-body .form-control:focus,
+        .modal-body .form-select:focus {
+            border-color:#14213d;
+            box-shadow: 0 0 0 #14213d;
+        }
+
+        .modal-footer {
+            padding: 16px 28px 22px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .upload-box {
+            position: relative;
+            padding: 40px 15px;
+            background: #fafafa;
+            border: 2px dashed #1e3a5f;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .upload-box:hover {
+            background: #f3f6fb;
+        }
+
+        .upload-box i {
+            color: #1e3a5f;
+            font-size: 52px;
+        }
+
+        .upload-box h6 {
+            margin: 16px 0 6px;
+            color: #1f2937;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .upload-box p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 13.5px;
+        }
+
+        .upload-box input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+       .modal .btn-close:focus{
+        background-color:white;
+        border-color: #14213d;
+        box-shadow: none;
+        outline: none;
+
+    }
+        .btn-upload {
+            background: #14213d;
+            border: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        .btn-upload:hover {
+            background: #1b2a4e;
+            color: white;
+        }
+
+        @media (max-width: 991px) {
+
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .topbar {
+                padding: 12px 16px;
+            }
+
+            .search-wrap {
+                width: 200px;
+            }
+
+            .page {
+                padding: 24px 16px;
+            }
+        }
+
+        @media (max-width: 575px) {
+
+            .search-wrap,
+            .client-view,
+            .profile-name {
+                display: none;
+            }
+        }
+
+  
+             </style>
+  </head>
+
+<body>
+<div class="sidebar">
+    <h3>
+        <i class="fa-solid fa-scale-balanced"></i>
+        <b class="logo-text">Qanoon</b>
+        <span>Client</span>
+    </h3>
+    <p>Client Portal</p>
+    <a href="client(dashboard).html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+
+    <p>Legal Matters</p>
+    <a href="lawyers.html"><i class="fa-solid fa-user-tie"></i> Find Lawyers</a>
+    <a href="cases.html"><i class="fa-solid fa-briefcase"></i> Cases</a>
+    <a href="hearings.html"><i class="fa-solid fa-calendar-days"></i> Hearing Schedule</a>
+    <a href="appointments.html"><i class="bi bi-calendar-check"></i> Appointments</a>
+    
+
+    <p>Dictation & Vault</p>
+    <a href="recordings.html"><i class="bi bi-mic"></i> Voice Recordings</a>
+    <a href="documents.html"  class="active"><i class="bi bi-folder2-open"></i> Documents Vault</a>
+    <a href="notifications.html"><i class="bi bi-bell-fill"></i> Notifications</a>
+
+
+    <p>My Profile</p>
+    <a href="profile.html"><i class="bi bi-person-vcard"></i> Personal Profile</a>
+
+</div>
+
+<div class="main-content">
+
+    <!-- ---------- Top bar ---------- -->
+    <div class="topbar">
+
+        <div class="topbar-left">
+            <button class="menu-btn"><i class="bi bi-list"></i></button>
+            <input type="text" class="form-control search-box" placeholder="Search my documents......">
+        </div>
+
+        <div class="topbar-right">
+
+            <a class="client-view"><i class="fa-solid fa-user"></i> Client View</a>
+
+            <div class="dropdown">
+                <button class="profile-btn" data-bs-toggle="dropdown">
+                    <div class="avatar">MA</div>
+                    <span class="profile-name">Minahil Akram</span>
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> My Profile</a>
+                    <a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+         <div class="page">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <h1>Case Document &  Evidence Vault</h1>
+                <p class="text mb-0">
+                    <a href="client(dashboard).html">Client</a> / <b>Documents</b>
+                </p>
+            </div>
+            <button class="btn btn-request" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                <i class="bi bi-cloud-upload-fill"></i> Upload Document
+            </button>
+    </div>
+    <div class="schedule-card mt-4">
+
+            <div class="schedule-head">
+                <h5><i class="bi bi-file-earmark-lock2-fill"></i> Uploaded Case Files</h5>
+                <p>Encrypted contracts, evidence exhibits, and court filings</p>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table schedule-table align-middle">
+
+                    <thead>
+                        <tr>
+                            <th>File Name</th>
+                            <th>Category</th>
+                            <th>File Size</th>
+                            <th>Upload Date</th>
+                            <th class="text-end">Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="file-name">
+                                <i class="fa-solid fa-file-word file-word"></i>Business-Partnership-Agreement.docx
+                            </td>
+                            <td><span class="category-badge">Contract</span></td>
+                            <td>12.8 MB</td>
+                            <td>2026-09-12</td>
+                            <td class="text-end">
+                                <a href="#" class="btn btn-download"><i class="bi bi-download"></i></a>
+                            </td>
+                        </tr>
+
+                        <!-- Row 2 -->
+                        <tr>
+                            <td class="file-name">
+                                <i class="bi bi-filetype-docx file-word"></i>Property-Ownership-Contract.docx
+                            </td>
+                            <td><span class="category-badge">Contract</span></td>
+                            <td>2.4 MB</td>
+                            <td>2026-10-02</td>
+                            <td class="text-end">
+                                <a href="#" class="btn btn-download"><i class="bi bi-download"></i></a>
+                            </td>
+                        </tr>
+                         <tr>
+                           <td class="file-name">
+                            <i class="fa-solid fa-file-image file-image"></i>CNIC-Copy-Front-Back.jpg
+                           </td>
+                        <td><span class="category-badge">Identity</span></td>
+                        <td>1.1 MB</td>
+                        <td>2026-10-25</td>
+                       <td class="text-end">
+                         <a href="#" class="btn btn-download"><i class="bi bi-download"></i></a>
+        </td>
+    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="uploadModal">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+
+            <!-- Modal header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadTitle">
+                    <i class="bi bi-file-earmark-arrow-up-fill"></i> Upload Case Document
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body (form) -->
+            <form>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="docName">Document Description / File Name <span class="text-danger">*</span></label>
+                        <input type="text" id="docName" class="form-control" placeholder="e.g. Bank_Statement_Discrepancy.pdf" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="docCategory">Evidence Category</label>
+                        <select id="docCategory" class="form-select">
+                            <option>Evidence Exhibit</option>
+                            <option>Contract</option>
+                            <option>Court Filing</option>
+                            <option>Identity Document</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-2">
+                        <label>Select Document (PDF, Images, DOCX)</label>
+
+                        <!-- Click or drag a file onto this box -->
+                        <div class="upload-box">
+                            <i class="bi bi-cloud-arrow-up-fill"></i>
+                            <h6>Click to choose file or drag into this area</h6>
+                            <p>Privileged attorney-client transmission</p>
+                            <input type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Modal footer (buttons) -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-upload"><i class="bi bi-upload"></i> Upload to Case</button>
+                </div>
+            </form>
+
+        </div>  
+    </div>       
+</div>          
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>           

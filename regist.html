@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCMS - Lawyer Registration</title>
+    <style>
+        * { margin: 0;
+             padding: 0; 
+             box-sizing: border-box;
+             }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: white;
+            min-height: 100vh;
+            padding: 20px 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .container {
+            background: whitesmoke;
+            width: 100%;
+            max-width: 380px;
+            padding: 22px 20px;
+            border: 1px solid #d1dedb;
+            border-radius: 12px;
+            box-shadow: 0 0 3 black;
+        }
+        .heading {
+             text-align: center;
+              margin-bottom: 14px;
+             }
+        .heading h1 { 
+            color: #14213D; 
+            font-size: 20px;
+             margin-bottom: 4px;
+             }
+        .heading p {
+             color: #777;
+             font-size: 12px; }
+        h1 { 
+            color: #14213d;
+             font-size: 20px;
+              margin-bottom: 8px; 
+            }
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .profile-circle {
+            width: 64px;
+            height: 64px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: 2px dashed #b8ceca;
+            background: #f0f6f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #647b78;
+            font-size: 11px;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .profile-circle:hover { border-color:#14243d;
+             background: #e6f5f3;
+             }
+        .picture-input { 
+            display: none;
+         }
+        .upload-text label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+            color: #14213d;
+            font-size: 13px;
+        }
+        .upload-text p { 
+            color: #718096; 
+            font-size: 11px;
+             margin-top: 2px; }
+        .form-group { 
+            margin-bottom: 10px;
+         }
+        .form-row { 
+            display: flex;
+             gap: 10px; }
+        .form-row .form-group { 
+            flex: 1; 
+            min-width: 0; }
+        label {
+            display: block;
+            margin-bottom: 4px;
+            color: #14213d;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #cbd8d5;
+            border-radius: 7px;
+            font-size: 12px;
+            outline: none;
+            background: white;
+        }
+        select { 
+            color: #14213d;
+             cursor: pointer; }
+        input:focus, select:focus {
+            border-color: #14213d;
+            box-shadow: 0 0 3px #14213d;
+        }
+        .help-text { display: block; 
+            color: #718096;
+             font-size: 10px;
+              margin-top: 4px; }
+        .register-btn {
+            width: 100%;
+            padding: 9px;
+            margin-top: 4px;
+            background: #14243d;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .register-btn:hover {
+             color: #C5A15B;
+             }
+        .login-text {
+            text-align: center;
+            margin-top: 12px;
+            color: #64748b;
+            font-size: 12px;
+        }
+        .login-text a { 
+            color: #14243d; 
+            font-weight: bold; 
+            text-decoration: none; }
+        .login-text a:hover { 
+            text-decoration: underline;
+         }
+        .login-link {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #666;
+        }
+        .login-link a { 
+            color: #14213D;
+             font-weight: bold;
+              text-decoration: none;
+             }
+        .login-link a:hover { 
+            color: #C5A15B;
+         }
+         .terms {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin: 4px 0 10px;
+            font-size: 11px;
+            font-weight: normal;
+            color: #14213d;
+            cursor: pointer;
+        }
+        .terms input[type="checkbox"] {
+            width: 14px;
+            height: 14px;
+            padding: 0;
+            flex-shrink: 0;
+            accent-color: #14243d;
+            cursor: pointer;
+        }
+        .terms a {
+             color: #C5A15B;
+             text-decoration: none
+             ; }
+        .terms a:hover {
+             text-decoration: underline;
+             }
+        .verify-note {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            background: #fff8e6;
+            border-left: 3px solid #f0b429;
+            border-radius: 6px;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            font-size: 11px;
+            line-height: 1.4;
+            color: #8a3b0c;
+        }
+        .verify-note svg { flex-shrink: 0; margin-top: 1px; }
+        
+        @media (max-width: 480px) {
+            body {
+                 padding: 12px 8px;
+                 }
+            .container {
+                 padding: 18px 14px;
+                 }
+            h1 {
+                 font-size: 18px; 
+            }
+            .form-row { 
+                flex-direction: column; 
+                gap: 0; }
+            .profile-circle { 
+                width: 56px; 
+                height: 56px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lawyer Registration Form</h1>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div class="profile-section">
+                <label for="picture" class="profile-circle">No photo</label>
+                <input type="file" id="picture" name="profilePicture" class="picture-input" accept="image/*">
+                <div class="upload-text">
+                    <label for="picture">Profile picture</label>
+                    <p>Click the circle to choose a photo.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fullname">Full name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter email" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone number</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" maxlength="11" required>
+                </div>
+                <div class="form-group">
+                    <label for="cnic">CNIC</label>
+                    <input type="text" id="cnic" name="cnic" pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" maxlength="15" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" minlength="8" placeholder="Enter password" required>
+                    <p class="help-text">At least 8 characters</p>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" minlength="8" placeholder="Confirm password" required>
+                </div>
+            </div>
+             <div class="verify-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#8a3b0c" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>
+                <span><strong>Bar License Verification Required:</strong> Newly registered advocate accounts are subject to administrative credentials validation before taking cases.</span>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="text">Bar Council/Licence Number</label>
+                    <input type="text" id="text" name="text" placeholder="e.g PBC-12345" required>
+                </div>
+                <div class="form-group">
+                    <label for="legalspecialization">Legal Specialization</label>
+                    <select id="legalspecialization" name="legalspecialization" required>
+                        <option value="" disabled selected>Select Specialization</option>
+                        <option value="civil">Civil Rights & Employment Law</option>
+                        <option value="property">Real Estate & Property Litigation</option>
+                        <option value="family">Family & Estate Law</option>
+                        <option value="intellectual">Intellectual Property & Patents</option>
+                        <option value="criminal">Criminal Defense & White Collar</option>
+                        <option value="Cooperate">Cooperate & Commercial Law</option>
+                    </select>
+                </div>
+            </div>
+             <label class="terms" for="terms1">
+                <input type="checkbox" id="terms1" name="terms" required>
+                <span>I agree to the <a href="#">Terms of Legal Service</a> and <a href="#">Confidentiality Protocol</a>.</span>
+            </label>
+            <button type="submit" class="register-btn">Create Account</button>
+            <p class="login-text">Already have an account? <a href="login.html">Login</a></p>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="heading">
+            <h1>Qanoon</h1>
+            <p>Create your client account</p>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="fullname2">Full Name</label>
+                <input type="text" id="fullname2" placeholder="Enter your full name" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email2">Email Address</label>
+                <input type="email" id="email2" placeholder="Enter your email address" autocomplete="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone2">Phone Number</label>
+                <input type="tel" id="phone2" pattern="03[0-9]{9}"
+                    title="Enter a valid 11-digit Pakistani mobile number" autocomplete="tel" required>
+            </div>
+            <div class="form-group">
+                <label for="cnic2">CNIC Number</label>
+                <input type="text" id="cnic2" pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}"
+                    title="Enter CNIC in 00000-0000000-0 format" maxlength="15" required>
+            </div>
+            <div class="form-group">
+                <label for="password2">Password</label>
+                <input type="password" id="password2" placeholder="Create a password" minlength="8" autocomplete="new-password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword2">Confirm Password</label>
+                <input type="password" id="confirmPassword2" placeholder="Confirm your password" minlength="8" autocomplete="new-password" required>
+            </div>
+            <label class="terms" for="terms2">
+                <input type="checkbox" id="terms2" name="terms" required>
+                <span>I agree to the <a href="#">Terms of Legal Service</a> and <a href="#">Confidentiality Protocol</a>.</span>
+            </label>
+            <button type="submit" class="register-btn">Create Account</button>
+        </form>
+        <div class="login-link">
+            Already have an account? <a href="login.html">Login</a>
+        </div>
+    </div>
+</body>
+</html>

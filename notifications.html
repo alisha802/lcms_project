@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Appointments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+     <style>
+
+        body {
+            background: #f5f7fb;
+            margin: 0;
+        }
+ .logo-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+  .logo-text:hover{
+         color: #c5a15b;
+}
+.sidebar {
+            position: fixed;
+            width: 260px;
+            height: 100vh;
+            background:#14213d;
+            padding: 20px 15px;
+            overflow-y: scroll;
+        }
+ .sidebar h3 {
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h3 i {
+            color: #c5a15b;
+        }
+
+        .sidebar h3 span {
+            background: #3a3a3a;
+            color: #c5a15b;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+        .sidebar p {
+            color: #8a94a8;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 22px 0 8px 10px;
+        }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 11px 14px;
+            border-radius: 10px;
+            font-weight: 500;
+           
+        }
+
+        .sidebar a:hover {
+            background:0px 0px 2px black;
+            color: white;
+        }
+
+        .sidebar a.active {
+            background: #1b2a4e;
+            color: white;
+            border-left: 3px solid #c5a15b;
+        }
+        .sidebar a.active i {
+            color: #c5a15b;
+        }
+        .sidebar a i {
+         font-size: 18px;
+}
+         .sidebar a:hover i {
+         color: #c5a15b;
+}
+
+        @media (max-width: 991px) {
+            .sidebar { display: none; }
+        }
+    .main-content {
+         margin-left:260px;}
+         .topbar {
+           background:white;
+         padding:12px 28px;
+         display:flex; 
+         align-items:center;
+        justify-content:space-between;
+         border-bottom:1px solid #e5e7eb;
+         }
+
+        .topbar-left,
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: #14213d;
+            font-size: 26px;
+        }
+
+        .search-box {
+            width: 330px;
+            padding: 8px 16px;
+            background: #f1f3f7;
+            border: 1px solid #e5e7eb;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+        .search-box::placeholder {
+            color: #6b7280;
+        }
+
+        .search-box:focus {
+            background: #ffffff;
+            border-color: #14213d;
+            box-shadow: 0 0 0 #14213d;
+        }
+
+        .client-view {
+            padding: 6px 15px;
+            background: #f8f9fb;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            color: #14213d;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .client-view i {
+            color: #c5a15b;
+        }
+        .profile-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: none;
+            border: none;
+            color: #14213d;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #14213d;
+            border: 2px solid #c5a15b;
+            border-radius: 50%;
+            color: white;
+            font-size: 13px;
+        }
+
+        .dropdown-menu .dropdown-item {
+            padding:9px 18px;
+           font-size:14px;
+           display:flex;
+           align-items:center;
+            gap:10px;
+             }
+      .page {
+            padding: 30px 32px;
+        }
+
+        .page h1 {
+            margin: 0 0 4px;
+            color: #14213d;
+            font-size: 28px;
+            font-weight: 650;
+        }
+
+        .text {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .text a {
+            color: #6b7280;
+            text-decoration: none;
+        }
+
+        .text b {
+            color: #14213d;
+        }
+.notify-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+    padding: 16px 22px;
+    background: white;
+    border-left: 5px solid #d4b062;
+    border-radius: 14px;
+    box-shadow: 0 0 0 #14213d;
+}
+
+.notify-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    background: #eef1f5;
+    border-radius: 12px;
+    color: #14213d;
+    font-size: 19px;
+}
+
+.notify-body {
+    flex: 1;
+}
+
+.notify-body h5 {
+    margin: 0 0 2px;
+    color: #14213d;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.notify-body p {
+    margin: 0 0 2px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.notify-time {
+    color: #8a94a8;
+    font-size: 12.5px;
+}
+
+.btn-view {
+    padding: 6px 14px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #14213d;
+    font-size: 13.5px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.btn-view:hover {
+    background: #14213d;
+    border-color: #14213d;
+    color: white;
+}
+        
+        @media (max-width: 991px) {
+
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .topbar {
+                padding: 12px 16px;
+            }
+
+            .search-wrap {
+                width: 200px;
+            }
+
+            .page {
+                padding: 24px 16px;
+            }
+        }
+       
+   </style>
+</head>
+<body>
+<div class="sidebar">
+    <h3>
+        <i class="fa-solid fa-scale-balanced"></i>
+        <b class="logo-text">Qanoon</b>
+        <span>Client</span>
+    </h3>
+    <p>Client Portal</p>
+    <a href="client(dashboard).html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+
+    <p>Legal Matters</p>
+    <a href="lawyers.html" class="active"><i class="fa-solid fa-user-tie"></i> Find Lawyers</a>
+    <a href="cases.html"><i class="fa-solid fa-briefcase"></i> Cases</a>
+    <a href="hearings.html"><i class="fa-solid fa-calendar-days"></i> Hearing Schedule</a>
+    <a href="appointments.html"><i class="bi bi-calendar-check"></i> Appointments</a>
+
+    <p>Dictation & Vault</p>
+    <a href="recordings.html"><i class="bi bi-mic"></i> Voice Recordings</a>
+    <a href="documents.html"><i class="bi bi-folder2-open"></i> Documents Vault</a>
+    <a href="notifications.html"><i class="bi bi-bell-fill"></i> Notifications</a>
+
+    <p>My Profile</p>
+    <a href="profile.html"><i class="bi bi-person-vcard"></i> Personal Profile</a>
+
+</div>    
+<div class="main-content">
+    <div class="topbar">
+
+        <div class="topbar-left">
+            <button class="menu-btn"><i class="bi bi-list"></i></button>
+            <input type="text" class="form-control search-box" placeholder="Search advocates by name or specialty...">
+        </div>
+
+        <div class="topbar-right">
+
+            <a class="client-view"><i class="fa-solid fa-user"></i> Client View</a>
+
+            <div class="dropdown">
+                <button class="profile-btn" data-bs-toggle="dropdown">
+                    <div class="avatar">MA</div>
+                    <span class="profile-name">Minahil Akram</span>
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> My Profile</a>
+                    <a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="page">
+        <div class="mb-4">
+            <h1>Client Notifications & Case Alerts</h1>
+            <p class="text mb-0">
+                <a href="client(dashboard).html">Client</a> / <b>Notifications</b>
+            </p>
+        </div>
+        <div class="notify-card">
+            <div class="notify-icon"><i class="bi bi-bell-fill"></i></div>
+            <div class="notify-body">
+                <h5>Appointment Confirmed</h5>
+                <p>Elena Rostova confirmed your consultation on Nov 10, 2026 at 11:00 AM.</p>
+                <span class="notify-time">10 mins ago</span>
+            </div>
+            <a href="appointments.html" class="btn btn-view"><i class="bi bi-arrow-right"></i> View</a>
+        </div>
+        <div class="notify-card">
+            <div class="notify-icon"><i class="bi bi-bell-fill"></i></div>
+            <div class="notify-body">
+                <h5>Hearing Scheduled</h5>
+                <p>Oral argument for your case is scheduled for Nov 18, 2026 in Courtroom 4B.</p>
+                <span class="notify-time">2 hours ago</span>
+            </div>
+            <a href="hearing.html" class="btn btn-view"><i class="bi bi-arrow-right"></i> View</a>
+        </div>
+
+        <!-- Notification 3 -->
+        <div class="notify-card">
+            <div class="notify-icon"><i class="bi bi-bell-fill"></i></div>
+            <div class="notify-body">
+                <h5>Advocate Received Your Voice Statement</h5>
+                <p>Your audio memo has been delivered to Jhon Alamy for review.</p>
+                <span class="notify-time">Yesterday</span>
+            </div>
+            <a href="recordings.html" class="btn btn-view"><i class="bi bi-arrow-right"></i> View</a>
+        </div>
+        <div class="notify-card">
+            <div class="notify-icon"><i class="bi bi-bell-fill"></i></div>
+            <div class="notify-body">
+                <h5>Document Uploaded Successfully</h5>
+                <p>Business-Partnership-Agreement.docx was added to your case files.</p>
+                <span class="notify-time">2 days ago</span>
+            </div>
+            <a href="documents.html" class="btn btn-view"><i class="bi bi-arrow-right"></i> View</a>
+        </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
